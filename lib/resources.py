@@ -14,9 +14,8 @@ class ConfResource:
 class ServiceResource:
 
     file_properties = {"extenxion": ".toml"}
-    hierarchy = {"service":{"required":{"check_interval":{"required":{}, "optional":{},"type":int},
-                                         "check_script":{"required":{}, "optional":{},"type":str}
-                                        },
-                               "optional": {},
-                               "type": str}
-                   }
+    hierarchy = {"service":{"required":{"check_script":{"required":{}, "optional":{},"type":str}},
+                            "optional": {},
+                            "type": str
+                            }
+                }

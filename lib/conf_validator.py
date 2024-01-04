@@ -2,13 +2,16 @@ import sys
 import os
 import argparse
 import toml
+import yaml
+
 import service
 import resources
 import filehandler
-import service
+
 
 sys.tracebacklimit=0
 
+print(sys.path)
 #get the file
 try:
     parser = argparse.ArgumentParser()
@@ -23,7 +26,7 @@ file_handler = filehandler.FileHandler()
 service_resource = resources.ServiceResource()
 conf_resource = resources.ConfResource()
 
-# check it is the correct conf file
+# check if it is the correct conf file
 if args.c != conf_resource.service_conf_file:
    raise Exception(f"Error: The service configuration file should be {conf_resource.service_conf_file}")
    sys.exit(1)
@@ -36,9 +39,11 @@ if not file_handler.check_file_exists(args.c):
 if not file_handler.check_permission(conf_file, "r"):
    sys.exit(f"Error: Check the permission of {conf_file}")
 
-service = service.Service(conf_file)
-response = service.validate()
+service_ = service.Service(conf_file)
+response = service_.validate()
+services = service_.generate()
 print(response)
+print(services)
 
 
          
