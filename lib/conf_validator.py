@@ -8,10 +8,7 @@ import service
 import resources
 import filehandler
 
-
 sys.tracebacklimit=0
-
-print(sys.path)
 #get the file
 try:
     parser = argparse.ArgumentParser()

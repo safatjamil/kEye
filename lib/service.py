@@ -14,7 +14,6 @@ class Service:
         self.dir_resource = resources.DirResource()
         self.file_handler = filehandler.FileHandler()
         
-    
     def validate(self):
         with open(self.file, "r") as f:
             try:
@@ -56,8 +55,6 @@ class Service:
                                 continue
                             self.serv_dicts[service][key] = services[service][key]
 
-                        
-                        
                     if len(found) < len(required_attributes):
                         self.return_["status"] = False
                         self.return_["error"] = "Error: missing attribute(s) "+ ",".join(tmp_required_attributes)+ " for "+ service
