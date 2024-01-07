@@ -1,7 +1,5 @@
-api:
-  authentication: False
+authentication: True
 
 # define your api users here
 # username:
-#   password: password
-
+#   password: user_password

@@ -1,5 +1,4 @@
 import toml
-
 import resources
 import filehandler
 

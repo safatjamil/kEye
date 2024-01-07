@@ -10,6 +10,7 @@ class DirResource:
 class ConfResource:
     
     service_conf_file = sys.path[-1] + "/conf/services.toml"
+    api_conf_file = sys.path[-1] + "/conf/api.yml"
 
 class ServiceResource:
 

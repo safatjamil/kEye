@@ -1,5 +1,5 @@
  [apache]
- check_script = "abc.py!-host!localhost!-port!80"
+ check_script = "check_http.py!-host!localhost!-port!80"
 
  
  

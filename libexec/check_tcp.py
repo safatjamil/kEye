@@ -37,8 +37,6 @@ try:
     s.connect((args.host, int(args.port)))
     handler.response({"message": f"Tcp-ok to {args.host} on port {args.port}"})
 except Exception as e:
-    print(type(e))
-    print(e.__dict__)
     handler.response({"message": f"Can not connect to {args.host} on port {args.port}. Error: {e}"})
     sys.exit(1)
 finally:
