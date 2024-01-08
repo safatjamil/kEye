@@ -31,6 +31,10 @@ lines = status.split("\n")
 if len(lines)<2:
     handler.response({"message": f"{status}"})
     sys.exit(1)
+
+exit_code = 1
+if "(running)" in lines[2]:
+    exit_code = 0
 handler.response({"message": f"{lines[2]}"})
-sys.exit(0)
+sys.exit(exit_code)
 

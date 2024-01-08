@@ -1,5 +1,7 @@
-authentication: True
+authentication: Trued
 
 # define your api users here
 # username:
 #   password: user_password
+anime:
+  password: dfaade

@@ -33,9 +33,9 @@ if not file_handler.check_permission(conf_resource.service_conf_file, "r"):
 service_ = service.Service(conf_resource.service_conf_file)
 response = service_.validate()
 services = service_.generate()
-if response["status"] == False:
+if not response["status"]:
    print(response["error"])
-   sys.exit(0)
+   sys.exit(1)
 print(response)
 
 # validate api.yml
@@ -45,10 +45,11 @@ if not file_handler.check_file_exists(conf_resource.api_conf_file):
 # check file permission
 if not file_handler.check_permission(conf_resource.api_conf_file, "r"):
    sys.exit(f"Error: Check the permission of {conf_resource.api_conf_file}")
-
-print(conf_resource.api_conf_file)
 api_ = api.Api(conf_resource.api_conf_file)
 response = api_.validate()
+if not response["status"]:
+   print(response["error"])
+   sys.exit(1)
 print(response)
 
 

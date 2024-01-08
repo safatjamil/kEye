@@ -36,12 +36,14 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 try:
     s.connect((args.host, int(args.port)))
     handler.response({"message": f"Tcp-ok to {args.host} on port {args.port}"})
+    s.close()
+    sys.exit(0)
 except Exception as e:
     handler.response({"message": f"Can not connect to {args.host} on port {args.port}. Error: {e}"})
-    sys.exit(1)
-finally:
     s.close()
-    sys.exit(0) 
+    sys.exit(1)
+
+     
     
 
 
