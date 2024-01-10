@@ -4,7 +4,6 @@ import filehandler
 
 
 class Service:
-    
     def __init__(self, file):
         self.file = file
         self.serv_dicts = {} 
@@ -20,7 +19,6 @@ class Service:
                 required_attributes = self.service_resource.hierarchy["service"]["required"]
                 optional_attributes = self.service_resource.hierarchy["service"]["optional"]
                 self.serv_dicts = {}
-
                 for service in services.keys():
                     self.serv_dicts[service] = {}
                     # get all the required attributes
@@ -28,17 +26,19 @@ class Service:
                     found = set()
                     for key in services[service].keys():
                         # check valid attribute
-                        if key not in required_attributes and key not in optional_attributes:
+                        if (key not in required_attributes and
+                            key not in optional_attributes):
                             self.return_["status"] = False
                             self.return_["error"] = f"{key},invalid attribute of {service}" 
                             return self.return_
                         # append the required attributes to a found list
-                        if key in required_attributes and key not in found:
+                        if (key in required_attributes and 
+                            key not in found):
                             found.add(key)
                             tmp_required_attributes.remove(key)
-
                         # check attribute type
-                        if key in required_attributes or key in optional_attributes:
+                        if (key in required_attributes or 
+                            key in optional_attributes):
                             if type(services[service][key]) != required_attributes[key]["type"]:
                                 self.return_["status"] = False
                                 self.return_["error"] = f"{key},invalid attribute type of {service}. Valid type should be {required_attributes[key]['type']}" 
