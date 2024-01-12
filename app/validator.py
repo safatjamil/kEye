@@ -35,7 +35,7 @@ if not file_handler.check_permission(conf_file, "r"):
 service_ = service.Service(conf_file)
 response = service_.validate()
 if not response["status"]:
-   print(f'Error: {response["error"]} in {conf_file}')
+   print(f'Error: {response["error"]}. Check {conf_file}')
    sys.exit(1)
 print(f'{response["message"]}')
 

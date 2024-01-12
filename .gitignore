@@ -2,3 +2,6 @@ setup.py
 lib/__pycache__/
 lib/test.py
 libexec/__pycache__/
+kEvenv/
+server.py
+setup.sh
