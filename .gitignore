@@ -5,3 +5,4 @@ libexec/__pycache__/
 kEvenv/
 server.py
 setup.sh
+__pycache__/
