@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo "Downloafind required packages..."
-apt-get install -y python3-pip > /dev/null
+echo "Checking required packages..."
+sudo apt-get install -y python3-pip > /dev/null
 # user=$(grep kEye /etc/passwd)
 # if [[ ${#user} -lt 10 ]]
 # then
@@ -9,13 +9,13 @@ apt-get install -y python3-pip > /dev/null
 #     echo "kEye ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/kEye
 # fi
 echo "Validating config files...";
-python3 app/validator.py
+python3 main/validator.py
 if [ $? -ne 0 ]
 then
     exit 1
 fi
 echo "Creating virtual environment..."
-pip -q install virtualenv
+pip -q --disable-pip-version-check install virtualenv
 # delete the current virtual environment if exists
 currenv=$(ls | grep kEvenv)
 if [[ ${#currenv} -ge 6 ]]
@@ -24,12 +24,12 @@ then
 fi
 virtualenv kEvenv > /dev/null
 source ./kEvenv/bin/activate
-pip -q install -r requirements.txt
-cp -r app  conf libexec  kEvenv/ 
+pip -q --disable-pip-version-check install -r requirements.txt
+cp -r main conf libexec  kEvenv/ 
 cp server.py kEvenv/
 cd kEvenv
 echo "Running the server..."
-gunicorn --bind 127.0.0.1:21393 server:app --daemon
+gunicorn --bind 127.0.0.1:21393 server:app 
 
 
 

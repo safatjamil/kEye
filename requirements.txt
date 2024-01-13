@@ -1,6 +1,5 @@
 flask
+Flask-RESTful
 gunicorn
 toml
 pyyaml
-
-

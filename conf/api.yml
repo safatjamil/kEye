@@ -5,3 +5,5 @@ authentication: True
 #   password: user_password
 anime:
   password: dfaade
+shafat:
+  password: "123456"

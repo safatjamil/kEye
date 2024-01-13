@@ -1,6 +1,5 @@
 import toml
-import resources
-import filehandler
+from main import filehandler, resources
 
 
 class Service:

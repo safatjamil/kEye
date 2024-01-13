@@ -4,10 +4,8 @@ import argparse
 import toml
 import yaml
 
-import service
-import resources
-import filehandler
-import api
+sys.path.append(os.getcwd())
+from main import api, filehandler, resources, service
 
 sys.tracebacklimit=0
 file_handler = filehandler.FileHandler()
