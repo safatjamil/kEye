@@ -33,6 +33,7 @@ except:
     sys.exit(1)
 # create a tcp socket
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.settimeout(10)
 try:
     s.connect((args.host, int(args.port)))
     handler.response({"message": f"Tcp-ok to {args.host} on port {args.port}"})

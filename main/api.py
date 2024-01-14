@@ -11,7 +11,7 @@ class Api:
         self.file_handler = filehandler.FileHandler()
     
     def validate(self):
-        return_ = {}
+        return_ = {"message": "", "error": ""}
         try:
             with open(f"{self.file}", "r") as f:
                 api_conf = yaml.safe_load(f)
@@ -36,6 +36,7 @@ class Api:
             return return_
         except Exception as e:
             return_["status"] = False
+            return_["message"] = "Something went wrong"
             return_["error"] = e
             return return_
         
@@ -48,7 +49,7 @@ class Api:
             return None
 
     def is_auth_enabled(self):
-        return_ = {}
+        return_ = {"message": "", "error": ""}
         try:
             with open(f"{self.file}", "r") as f:
                 api_conf = yaml.safe_load(f)
@@ -65,15 +66,15 @@ class Api:
             else:
                 return_["status"] = True
                 return_["authentication"] = False
-                return_["message"] = ""
                 return return_
         except Exception as e:
             return_["status"] = False
+            return_["message"] = "Something went wrong"
             return_["error"] = e
             return return_
 
     def authenticate_user(self, user, password):
-        return_ = {"status": True}
+        return_ = {"status": True, "message": "", "error": ""}
         try:
             with open(f"{self.file}", "r") as f:
                 api_conf = yaml.safe_load(f)

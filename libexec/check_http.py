@@ -38,7 +38,7 @@ if getattr(args, "secure"):
     protocol = "https"
 
 try:
-    req = requests.get(f"{protocol}://{args.host}:{args.port}", verify=False)
+    req = requests.get(f"{protocol}://{args.host}:{args.port}", verify=False, timeout=10)
     if req.status_code == 200:
         handler.response({"message": f"{protocol}-OK, response code: 200"})
         sys.exit(0)
