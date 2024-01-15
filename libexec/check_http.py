@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import os
 import sys
 import urllib.request
@@ -39,15 +40,17 @@ if getattr(args, "secure"):
 
 try:
     req = requests.get(f"{protocol}://{args.host}:{args.port}", verify=False, timeout=10)
-    if req.status_code == 200:
-        handler.response({"message": f"{protocol}-OK, response code: 200"})
-        sys.exit(0)
-    else:
-        handler.response({"message": f"{protocol}-ERROR, response code: {req.status_code}"})
-        sys.exit(1)
 except:
     handler.response({"message": f"Can not connect to {args.host} on port {args.port}"})
     sys.exit(1)
+
+if req.status_code == 200:
+    handler.response({"message": f"{protocol}-OK, response code: 200"})
+    sys.exit(0)
+else:
+    handler.response({"message": f"{protocol}-ERROR, response code: {req.status_code}"})
+    sys.exit(1)
+
     
     
 
