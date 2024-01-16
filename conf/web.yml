@@ -1,5 +1,5 @@
 # web interface is not available now
 # authentication: False
-# define your api users here
+# define your web users here
 # username:
 #   password: password
