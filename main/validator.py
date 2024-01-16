@@ -21,7 +21,6 @@ except Exception as e:
     sys.exit(1)
 
 # validate services.toml
-# check if file exists
 conf_file = f"{os.getcwd()}/conf/services.toml"
 if not file_handler.check_file_exists(f"{conf_file}"):
    print(f"Error: {conf_file} file doesn't exist")
@@ -38,7 +37,6 @@ if not response["status"]:
 print(f'{response["message"]}')
 
 # validate api.yml
-# check if file exists
 api_conf = f"{os.getcwd()}/conf/api.yml"
 if not file_handler.check_file_exists(api_conf):
    print(f"Error: {api_conf} file doesn't exist")

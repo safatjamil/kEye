@@ -1,6 +1,11 @@
- [apache]
- check_script = "check_http.py!-host!192.168.1.50!-port!80"
+[apache]
+check_script = "check_http.py!-host!192.168.1.50!-port!80"
 
+[docker]
+check_script = "check_service.py!-service!docker"
+
+[cron]
+check_script = "check_service.sh!cron"
  
  
 

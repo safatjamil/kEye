@@ -18,8 +18,14 @@ fi
 virtualenv kEvenv > /dev/null
 source ./kEvenv/bin/activate
 pip -q --disable-pip-version-check install -r requirements.txt
-cp -r -p main conf libexec  kEvenv/ 
+cp -r conf main libexec kEvenv/ 
+chmod +r kEvenv/conf/*
+chmod +r kEvenv/main/*
+chmod +x kEvenv/main/*
+chmod +r kEvenv/libexec/*
+chmod +x kEvenv/libexec/*
 cp server.py kEvenv/
+chmod +x kEvenv/server.py
 cd kEvenv
 echo "Running the server..."
 gunicorn --bind 127.0.0.1:21393 server:app --daemon
