@@ -18,4 +18,4 @@ It runs on a lightweight flask server on port 21393. You can change this port in
 It will be better if you run this under systemd.
 
 # Api Reference
-$(host_ip or domain)/api/$(service name)/status/ ; Only GET method is allowed.
+$(host ip or domain)/api/$(service name)/status/ ; Only GET method is allowed.
