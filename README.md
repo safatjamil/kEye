@@ -17,5 +17,7 @@ It runs on a lightweight flask server on port 21393. You can change this port in
 # Running this as a service
 It will be better if you run this under systemd.
 
+# Start
+Run the setup.sh file
 # Api Reference
 [host ip or domain]/api/[service name]/status/ ; Only GET method is allowed.
